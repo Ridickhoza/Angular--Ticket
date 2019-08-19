@@ -1,0 +1,39 @@
+<h3>Create Ticket</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label for="name">Passenger id</label>
+          <input type="number" class="form-control" id="ticket.id" required [(ngModel)]="ticket.id" name="id">
+        </div>
+    <div class="form-group">
+      <label for="name">Passenger Name</label>
+      <input type="text" class="form-control" id="passengerName" required [(ngModel)]="ticket.passengerName" name="passengerName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Date of ticket Booking</label>
+      <input required type="date" class="form-control" id="bookingDate" required [(ngModel)]="ticket.bookingDate" name="bookingDate">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Source Station</label>
+      <input type="text" class="form-control" id="sourceStation" required [(ngModel)]="ticket.sourceStation" name="sourceStation">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Destination Station</label>
+      <input type="text" class="form-control" id="destStation" required [(ngModel)]="ticket.destStation" name="destStation">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="emailId" required [(ngModel)]="ticket.emailId" name="emailId">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+</div>

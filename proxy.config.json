@@ -1,0 +1,7 @@
+
+{
+    "/api/v1/tickets": {
+      "target": "http://localhost:9093",
+      "secure": false
+    }
+  }

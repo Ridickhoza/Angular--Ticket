@@ -1,0 +1,23 @@
+<h2>Ticket Details</h2> 
+<hr/>
+<div *ngIf="ticket">
+  <div>
+    <label>Passenger Name: </label> {{ticket.passengerName}}
+  </div>
+  <div>
+    <label>Booking date: </label> {{ticket.bookingDate}}
+  </div>
+  <div>
+    <label>Source Station: </label> {{ticket.sourceStation}}
+  </div>
+  <div>
+    <label>Destination Station: </label> {{ticket.destStation}}
+  </div>
+  <div>
+    <label>Email: </label> {{ticket.emailId}}
+  </div>
+  
+  <br>
+  <br>
+  <button (click)="list()" class="btn btn-primary">Back to Ticket List</button><br>
+</div>
