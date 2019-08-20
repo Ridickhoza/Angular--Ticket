@@ -8,10 +8,12 @@
         <tr>
           <th>PassengerName</th>
           <th>BookingDate</th>
-          <th>SourceStation</th>
-          <th>destinationStation</th>
+          <th>From-Station</th>
+          <th>To-destination-Station</th>
           <th>Email</th>
-          <th>Event</th>
+          <th>Delete Ticket</th>
+          <th>View Ticket Details</th>
+          <th>Update Ticket</th>
         </tr>
       </thead>
       <tbody>
@@ -21,9 +23,10 @@
           <td>{{ticket.sourceStation}}</td>
           <td>{{ticket.destStation}}</td>
           <td>{{ticket.emailId}}</td>
-          <td><button (click)="deleteTicket(ticket.id)" class="btn btn-danger">Delete</button>
-            <button (click)="ticketDetails(ticket.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
-        </td>
+          <td><button (click)="deleteTicket(ticket.id)" class="btn btn-danger">Delete</button> </td>
+           <td> <button (click)="ticketDetails(ticket.id)" class="btn btn-info" style="margin-left: 10px">Details</button></td>
+            <td><button (click)="updateDetails(ticket.id)" class="btn btn-info" style="margin-left: 10px">Update</button></td>
+    
           <!--<td><button (click)="deleteTicket(ticket.id)">Delete</button>-->
          <!-- <td><button  (click)="checkUpdate(ticket.id)">Update</button>
           </td>-->

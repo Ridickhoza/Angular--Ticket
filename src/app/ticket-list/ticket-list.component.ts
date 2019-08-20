@@ -44,13 +44,10 @@ export class TicketListComponent implements OnInit {
   }
 
 
-  checkUpdate(id:number){
-      
+  updateDetails(id:number){
     
-    
-        this.router.navigate(['update']);
-        console.log(this.ticket.id);
-      
-    
+      this.router.navigate(['/update',id]);
+        //console.log(this.ticket.id);
+ 
   }
 }

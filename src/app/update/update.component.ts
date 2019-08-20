@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Ticket } from '../ticket';
 import { TicketService } from '../ticket.service';
-//import { TicketListComponent } from '../ticket-list/ticket-list.component';
-//import { Router } from '@angular/router';
+import { TicketListComponent } from '../ticket-list/ticket-list.component';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update',
@@ -11,34 +11,39 @@ import { TicketService } from '../ticket.service';
 })
 export class UpdateComponent implements OnInit {
   
-  ticket: Ticket = new Ticket();
-  submitted = false;
- 
- 
-  constructor(private ticketService: TicketService) { 
-
-
+ // ticket: Ticket = new Ticket();
+ tickets: TicketListComponent;
   
 
-    //this.ticket.id=ticketList.ticket.id;
+ id: number;
+ ticket: any;
+  constructor(private route: ActivatedRoute,private ticketService: TicketService,private router:Router ) { 
   }
 
-  //ticketList: TicketListComponent = new TicketListComponent(this.ticketService,this.router);
   ngOnInit() {
 
+    this.ticket = new Ticket();
+
+    this.id = this.route.snapshot.params['id'];
+    
+    this.ticketService.getTicket(this.id)
+      .subscribe(data => {
+        console.log(data)
+      this.ticket = data;
+      }, error => console.log(error));
   }
 
 
 updateTicket(id: number,ticket:object){
-  
+  id = this.tickets.ticket.id;
+  ticket =this.tickets.ticket;
   this.ticketService.updateTicket(id,ticket)
   .subscribe(data => console.log(data), error => console.log(error));
-
+  
 }
 
-onSubmit(id:number,ticket:object) {
-  this.submitted = true;
-  this.updateTicket(id,ticket);
+list(){
+  this.router.navigate(['tickets']);
 }
 
 }

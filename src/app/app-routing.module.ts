@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'ticket', pathMatch: 'full' },
   { path: 'tickets', component: TicketListComponent },
   { path: 'add', component: CreateTicketComponent },
-  { path: 'update', component: UpdateComponent },
+  { path: 'update/:id', component: UpdateComponent },
   { path: 'detail/:id', component:  TicketDetailsComponent},
 ];
 
